@@ -1,0 +1,11 @@
+class Solution:
+    def addStrings(self, num1: str, num2: str) -> str:
+        i, j, carry, res = len(num1)-1, len(num2)-1, 0, []
+        while i >= 0 or j >= 0 or carry:
+            carry += (ord(num1[i]) - 48) if i >= 0 else 0
+            carry += (ord(num2[j]) - 48) if j >= 0 else 0
+            res.append(chr(carry % 10 + 48))
+            carry //= 10
+            i -= 1
+            j -= 1
+        return ''.join(reversed(res))
