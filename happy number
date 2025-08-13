@@ -1,0 +1,13 @@
+class Solution:
+    def isHappy(self, n: int) -> bool:
+        ss = set()
+        temp = n
+        while temp != 1 and temp not in ss:
+            ss.add(temp)
+            s = 0
+            while temp > 0:
+                d = temp % 10
+                s += d * d
+                temp //= 10
+            temp = s
+        return temp == 1
